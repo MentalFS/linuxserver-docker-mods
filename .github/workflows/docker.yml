@@ -55,7 +55,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./freshrss-redditimage
-          file: ./freshrss-extensions/Dockerfile
+          file: ./freshrss-redditimage/Dockerfile
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-redditimage
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
