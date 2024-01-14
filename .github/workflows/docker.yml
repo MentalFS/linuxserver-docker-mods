@@ -43,9 +43,10 @@ jobs:
           build-args: MOD=freshrss-extensions
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-extensions
           labels: ${{ steps.meta.outputs.labels }}
+          provenance: false
+          push: ${{ github.ref == 'refs/heads/main' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          push: ${{ github.ref == 'refs/heads/main' }}
 
 
   freshrss-redditimage:
@@ -80,9 +81,10 @@ jobs:
           build-args: MOD=freshrss-redditimage
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-redditimage
           labels: ${{ steps.meta.outputs.labels }}
+          provenance: false
+          push: ${{ github.ref == 'refs/heads/main' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          push: ${{ github.ref == 'refs/heads/main' }}
 
 
   prune:
@@ -97,5 +99,4 @@ jobs:
           user: ${{ env.IMAGE_AUTHOR }}
           container: ${{ env.IMAGE_NAME }}
           dry-run: false
-          keep-last: 4
           prune-untagged: true
