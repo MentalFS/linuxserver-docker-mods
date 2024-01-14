@@ -14,3 +14,4 @@ Add `ghcr.io/mentalfs/linuxserver-mod:<tag>` to your `DOCKER_MODS` environment v
 |--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | [freshrss-extensions](freshrss-extensions/README.md)   | Installs the official FreshRSS extensions from [their central repository](https://github.com/FreshRSS/Extensions)                      |
 | [freshrss-redditimage](freshrss-redditimage/README.md) | Installs the [RedditImage](https://github.com/aledeg/xExtension-RedditImage) FreshRSS extension by [aledeg](https://github.com/aledeg) |
+
