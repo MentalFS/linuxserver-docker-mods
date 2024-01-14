@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+cd /config/www/freshrss/extensions
+
+if [ -d .git-extensions ]; then
+  echo updating freshrss-extensions
+  git --git-dir=.git-extensions --work-tree=. pull origin master --quiet
+else
+  echo installing freshrss-extensions
+  rm -rf .git-extensions
+  git --git-dir=.git-extensions init --quiet
+  git --git-dir=.git-extensions remote add origin "https://github.com/FreshRSS/Extensions.git"
+  git --git-dir=.git-extensions --work-tree=. sparse-checkout init
+  git --git-dir=.git-extensions --work-tree=. sparse-checkout set --no-cone "/xExtension-*"
+  git --git-dir=.git-extensions --work-tree=. pull origin master --quiet
+fi

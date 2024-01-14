@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+cd /config/www/freshrss/extensions
+
+if [ -d xExtension-RedditImage/.git ]; then
+  echo updating freshrss-redditimage
+  cd xExtension-RedditImage
+  git pull origin main --quiet
+else
+  echo installing freshrss-redditimage
+  rm -rf xExtension-RedditImage
+  git clone "https://github.com/aledeg/xExtension-RedditImage.git" xExtension-RedditImage --quiet
+fi
