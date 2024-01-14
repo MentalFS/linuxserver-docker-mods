@@ -33,8 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}
-          tags:   freshrss-extensions
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-extensions
 
       - name: Build and push it to ${{ env.REGISTRY }}
         id: build-and-push
@@ -71,8 +70,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}
-          tags:   freshrss-redditimage
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-redditimage
 
       - name: Build and push it to ${{ env.REGISTRY }}
         id: build-and-push
