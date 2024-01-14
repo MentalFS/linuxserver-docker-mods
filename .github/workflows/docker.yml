@@ -40,8 +40,8 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v5
         with:
-          context: ./freshrss-extensions
-          file: ./freshrss-extensions/Dockerfile
+          context: .
+          build-args: [MOD=freshrss-extensions]
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-extensions
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
@@ -78,8 +78,8 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v5
         with:
-          context: ./freshrss-redditimage
-          file: ./freshrss-redditimage/Dockerfile
+          context: .
+          build-args: [MOD=freshrss-redditimage]
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}:freshrss-redditimage
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
