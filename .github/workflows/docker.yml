@@ -96,5 +96,5 @@ jobs:
           token: ${{ secrets.PACKAGE_DELETE_TOKEN }}
           user: ${{ env.IMAGE_AUTHOR }}
           container: ${{ env.IMAGE_NAME }}
-          dry-run: false
+          dry-run: true
           prune-untagged: true
