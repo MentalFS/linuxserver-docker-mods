@@ -3,12 +3,16 @@
 set -e
 cd /config/www/freshrss/extensions
 
-if [ -d xExtension-RedditImage/.git ]; then
+if [ -d xExtension-RedditImage/.git-redditimage ]; then
   echo updating freshrss-redditimage
   cd xExtension-RedditImage
-  git pull origin main --quiet
+  git --git-dir=.git-redditimage --work-tree=. pull origin master --quiet
 else
   echo installing freshrss-redditimage
   rm -rf xExtension-RedditImage
-  git clone "https://github.com/aledeg/xExtension-RedditImage.git" xExtension-RedditImage --quiet
+  mkdir xExtension-RedditImage
+  cd xExtension-RedditImage
+  git --git-dir=.git-redditimage init --quiet
+  git --git-dir=.git-redditimage remote add origin "https://github.com/aledeg/xExtension-RedditImage.git"
+  git --git-dir=.git-redditimage --work-tree=. pull origin master --quiet
 fi
