@@ -34,6 +34,9 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_AUTHOR }}/${{ env.IMAGE_NAME }}
+          tags: |
+            freshrss-extensions
+            freshrss-redditimage
 
       - name: Build freshrss-extensions and push it to ${{ env.REGISTRY }}
         id: build-and-push-freshrss-extensions
