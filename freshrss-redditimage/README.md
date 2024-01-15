@@ -5,7 +5,7 @@ A [Linuxserver Docker mod](https://github.com/linuxserver/docker-mods/) that ins
 
 ## Usage
 
-Add `ghcr.io/mentalfs/linuxserver-mod:freshrss-redditimage` to your `DOCKER_MODS` environment variable, for example `DOCKER_MODS=ghcr.io/mentalfs/linuxserver-mods:freshrss-redditimage`. You can add multiple mods by using `|` as delimiter.
+Add `ghcr.io/mentalfs/linuxserver-mods:freshrss-redditimage` to your `DOCKER_MODS` environment variable, for example `DOCKER_MODS=ghcr.io/mentalfs/linuxserver-mods:freshrss-redditimage`. You can add multiple mods by using `|` as delimiter.
 
 
 ## Description

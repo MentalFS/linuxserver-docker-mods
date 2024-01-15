@@ -5,7 +5,7 @@ Here are some [Linuxserver Docker mods](https://github.com/linuxserver/docker-mo
 
 ## Usage
 
-Add `ghcr.io/mentalfs/linuxserver-mod:<tag>` to your `DOCKER_MODS` environment variable, for example `DOCKER_MODS=ghcr.io/mentalfs/linuxserver-mods:freshrss-extensions`. You can add multiple mods by using `|` as delimiter.
+Add `ghcr.io/mentalfs/linuxserver-mods:<tag>` to your `DOCKER_MODS` environment variable, for example `DOCKER_MODS=ghcr.io/mentalfs/linuxserver-mods:freshrss-extensions`. You can add multiple mods by using `|` as delimiter.
 
 
 ## Mods
