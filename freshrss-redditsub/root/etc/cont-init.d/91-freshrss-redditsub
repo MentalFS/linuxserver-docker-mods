@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+cd /config/www/freshrss/extensions
+
+if [ -d xExtension-RedditSub/.git-redditsub ]; then
+  echo updating freshrss-redditsub
+  cd xExtension-RedditSub
+  git --git-dir=.git-redditsub --work-tree=. pull origin main --quiet
+else
+  echo installing freshrss-redditsub
+  rm -rf xExtension-RedditSub
+  mkdir xExtension-RedditSub
+  cd xExtension-RedditSub
+  git --git-dir=.git-redditsub init --quiet
+  git --git-dir=.git-redditsub remote add origin "https://github.com/balthisar/xExtension-RedditSub"
+  git --git-dir=.git-redditsub --work-tree=. pull origin main --quiet
+fi
