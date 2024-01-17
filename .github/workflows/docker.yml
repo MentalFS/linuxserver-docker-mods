@@ -1,4 +1,4 @@
-name: Docker build all
+name: Docker
 on: [push, workflow_dispatch]
 
 permissions:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   freshrss-extensions:
-    uses: ./.github/workflows/docker-image.yml
+    uses: ./.github/workflows/image.yml
     with:
       path: freshrss-extensions
       tag: freshrss-extensions
@@ -20,7 +20,7 @@ jobs:
 
 
   freshrss-redditimage:
-    uses: ./.github/workflows/docker-image.yml
+    uses: ./.github/workflows/image.yml
     with:
       path: freshrss-redditimage
       tag: freshrss-redditimage
@@ -28,7 +28,7 @@ jobs:
 
 
   freshrss-redditsub:
-    uses: ./.github/workflows/docker-image.yml
+    uses: ./.github/workflows/image.yml
     with:
       path: freshrss-redditsub
       tag: freshrss-redditsub
@@ -40,7 +40,7 @@ jobs:
       - freshrss-extensions
       - freshrss-redditimage
       - freshrss-redditsub
-    uses: ./.github/workflows/docker-image.yml
+    uses: ./.github/workflows/image.yml
     with:
       path: freshrss-*
       tag: freshrss-all
