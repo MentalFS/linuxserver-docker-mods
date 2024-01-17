@@ -7,7 +7,7 @@ if [ -d xExtension-RedditSub/.git-redditsub ]; then
   echo updating freshrss-redditsub
   cd xExtension-RedditSub
   git --git-dir=.git-redditsub --work-tree=. fetch --all --quiet
-  git --git-dir=.git-redditsub --work-tree=. reset hard origin/master --quiet
+  git --git-dir=.git-redditsub --work-tree=. reset --hard origin/master --quiet
 else
   echo installing freshrss-redditsub
   rm -rf xExtension-RedditSub
