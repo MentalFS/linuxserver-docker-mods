@@ -1,0 +1,66 @@
+name: Docker build all
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_AUTHOR: mentalfs
+  IMAGE_NAME: linuxserver-mods
+
+jobs:
+  freshrss-extensions:
+    uses: ./.github/workflows/docker-image.yml
+    with:
+      path: freshrss-extensions
+      tag: freshrss-extensions
+    secrets: inherit
+
+
+  freshrss-redditimage:
+    uses: ./.github/workflows/docker-image.yml
+    with:
+      path: freshrss-redditimage
+      tag: freshrss-redditimage
+    secrets: inherit
+
+
+  freshrss-redditsub:
+    uses: ./.github/workflows/docker-image.yml
+    with:
+      path: freshrss-redditsub
+      tag: freshrss-redditsub
+    secrets: inherit
+
+
+  freshrss-all:
+    needs:
+      - freshrss-extensions
+      - freshrss-redditimage
+      - freshrss-redditsub
+    uses: ./.github/workflows/docker-image.yml
+    with:
+      path: freshrss-*
+      tag: freshrss-all
+    secrets: inherit
+
+
+  prune:
+    needs:
+      - freshrss-extensions
+      - freshrss-redditimage
+      - freshrss-redditsub
+      - freshrss-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prune old untagged images
+        uses: vlaurin/action-ghcr-prune@v0.5.0
+        with:
+          token: ${{ secrets.PACKAGE_DELETE_TOKEN }}
+          user: ${{ env.IMAGE_AUTHOR }}
+          container: ${{ env.IMAGE_NAME }}
+          dry-run: false
+          prune-untagged: true
