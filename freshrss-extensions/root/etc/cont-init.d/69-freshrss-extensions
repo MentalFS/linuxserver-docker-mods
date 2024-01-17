@@ -5,7 +5,8 @@ cd /config/www/freshrss/extensions
 
 if [ -d .git-extensions ]; then
   echo updating freshrss-extensions
-  git --git-dir=.git-extensions --work-tree=. pull origin master --quiet
+  git --git-dir=.git-extensions --work-tree=. fetch --all --quiet
+  git --git-dir=.git-extensions --work-tree=. reset hard origin/master --quiet
 else
   echo installing freshrss-extensions
   rm -rf .git-extensions
@@ -14,4 +15,6 @@ else
   git --git-dir=.git-extensions --work-tree=. sparse-checkout init
   git --git-dir=.git-extensions --work-tree=. sparse-checkout set --no-cone "/xExtension-*"
   git --git-dir=.git-extensions --work-tree=. pull origin master --quiet
+  git --git-dir=.git-extensions --work-tree=. fetch --all --quiet
+  git --git-dir=.git-extensions --work-tree=. reset hard origin/master --quiet
 fi
