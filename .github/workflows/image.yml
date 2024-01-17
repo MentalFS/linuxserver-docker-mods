@@ -21,7 +21,7 @@ env:
 
 
 jobs:
-  docker-image:
+  image:
     runs-on: ubuntu-latest
 
     steps:
