@@ -1,0 +1,20 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+cd /config/www/freshrss/extensions
+
+if [ -d .git-youtube ]; then
+  echo updating freshrss-youtube
+  git --git-dir=.git-youtube --work-tree=. fetch --all --quiet
+  git --git-dir=.git-youtube --work-tree=. reset --hard origin/master --quiet
+else
+  echo installing freshrss-youtube
+  rm -rf .git-youtube xExtension-YouTube
+  git --git-dir=.git-youtube init --quiet
+  git --git-dir=.git-youtube remote add origin "https://github.com/kevinpapst/freshrss-youtube.git"
+  git --git-dir=.git-youtube --work-tree=. sparse-checkout init
+  git --git-dir=.git-youtube --work-tree=. sparse-checkout set --no-cone "/xExtension-YouTube"
+  git --git-dir=.git-youtube --work-tree=. pull origin master --quiet
+  git --git-dir=.git-youtube --work-tree=. fetch --all --quiet
+  git --git-dir=.git-youtube --work-tree=. reset --hard origin/master --quiet
+fi

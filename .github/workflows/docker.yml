@@ -10,12 +10,21 @@ env:
   IMAGE_AUTHOR: mentalfs
   IMAGE_NAME: linuxserver-mods
 
+
 jobs:
   freshrss-extensions:
     uses: ./.github/workflows/image.yml
     with:
       path: freshrss-extensions
       tag: freshrss-extensions
+    secrets: inherit
+
+
+  freshrss-comicsinfeed:
+    uses: ./.github/workflows/image.yml
+    with:
+      path: freshrss-comicsinfeed
+      tag: freshrss-comicsinfeed
     secrets: inherit
 
 
@@ -35,11 +44,21 @@ jobs:
     secrets: inherit
 
 
+  freshrss-youtube:
+    uses: ./.github/workflows/image.yml
+    with:
+      path: freshrss-youtube
+      tag: freshrss-youtube
+    secrets: inherit
+
+
   freshrss-all:
     needs:
       - freshrss-extensions
+      - freshrss-comicsinfeed
       - freshrss-redditimage
       - freshrss-redditsub
+      - freshrss-youtube
     uses: ./.github/workflows/image.yml
     with:
       path: freshrss-*
@@ -49,9 +68,6 @@ jobs:
 
   prune:
     needs:
-      - freshrss-extensions
-      - freshrss-redditimage
-      - freshrss-redditsub
       - freshrss-all
     runs-on: ubuntu-latest
 

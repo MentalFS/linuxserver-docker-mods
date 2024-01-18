@@ -1,0 +1,19 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+cd /config/www/freshrss/extensions
+
+if [ -d xExtension-ComicsInFeed/.git-comicsinfeed ]; then
+  echo updating freshrss-comicsinfeed
+  cd xExtension-ComicsInFeed
+  git --git-dir=.git-comicsinfeed --work-tree=. fetch --all --quiet
+  git --git-dir=.git-comicsinfeed --work-tree=. reset --hard origin/main --quiet
+else
+  echo installing freshrss-comicsinfeed
+  rm -rf xExtension-ComicsInFeed
+  mkdir xExtension-ComicsInFeed
+  cd xExtension-ComicsInFeed
+  git --git-dir=.git-comicsinfeed init --quiet
+  git --git-dir=.git-comicsinfeed remote add origin "https://github.com/giventofly/freshrss-comicsinfeed.git"
+  git --git-dir=.git-comicsinfeed --work-tree=. pull origin main --quiet
+fi
