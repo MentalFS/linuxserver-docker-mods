@@ -47,7 +47,7 @@ jobs:
   freshrss-youtube:
     uses: ./.github/workflows/image.yml
     with:
-      path: freshrss-youtube
+      path: freshrss-cleanup-removed
       tag: freshrss-youtube
     secrets: inherit
 
