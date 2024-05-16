@@ -6,7 +6,6 @@ permissions:
   packages: write
 
 env:
-  REGISTRY: ghcr.io
   IMAGE_AUTHOR: mentalfs
   IMAGE_NAME: linuxserver-mods
 
@@ -73,11 +72,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Prune old untagged images
-        uses: vlaurin/action-ghcr-prune@v0.6.0
+      - name: Delete untagged images
+        if: ${{ inputs.push }}
+        uses: actions/delete-package-versions@v5
         with:
-          token: ${{ secrets.PACKAGE_DELETE_TOKEN }}
-          user: ${{ env.IMAGE_AUTHOR }}
-          container: ${{ env.IMAGE_NAME }}
-          dry-run: false
-          prune-untagged: true
+          package-name: ${{ env.IMAGE_NAME }}
+          package-type: container
+          delete-only-untagged-versions: 'true'
+          token: ${{ secrets.GITHUB_TOKEN }}
