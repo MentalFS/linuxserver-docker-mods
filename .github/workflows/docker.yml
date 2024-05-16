@@ -73,7 +73,6 @@ jobs:
 
     steps:
       - name: Delete untagged images
-        if: ${{ inputs.push }}
         uses: actions/delete-package-versions@v5
         with:
           package-name: ${{ env.IMAGE_NAME }}
