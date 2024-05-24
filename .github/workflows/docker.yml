@@ -43,21 +43,12 @@ jobs:
     secrets: inherit
 
 
-  freshrss-youtube:
-    uses: ./.github/workflows/image.yml
-    with:
-      path: freshrss-cleanup-removed
-      tag: freshrss-youtube
-    secrets: inherit
-
-
   freshrss-all:
     needs:
       - freshrss-extensions
       - freshrss-comicsinfeed
       - freshrss-redditimage
       - freshrss-redditsub
-      - freshrss-youtube
     uses: ./.github/workflows/image.yml
     with:
       path: freshrss-*

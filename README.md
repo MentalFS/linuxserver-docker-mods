@@ -22,7 +22,7 @@ Add `ghcr.io/mentalfs/linuxserver-mods:<tag>` to your `DOCKER_MODS` environment 
 These are multiple mods packed into one image for convenience. Add them to `DOCKER_MODS` just like any other mod, for example `DOCKER_MODS=ghcr.io/mentalfs/linuxserver-mods:freshrss-all`.
 
 `freshrss-all` 
-: [freshrss-extensions], [freshrss-comicsinfeed], [freshrss-redditimage], [freshrss-redditsub] and [freshrss-youtube]
+: [freshrss-extensions], [freshrss-comicsinfeed], [freshrss-redditimage], [freshrss-redditsub]
 
 
 [freshrss-extensions]:               freshrss-extensions/README.md
