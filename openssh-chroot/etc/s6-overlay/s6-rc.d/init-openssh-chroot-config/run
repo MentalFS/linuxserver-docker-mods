@@ -2,4 +2,5 @@
 
 set -e
 
+echo Setting ChrootDirectory
 echo "ChrootDirectory /config" >> /etc/ssh/sshd_config
