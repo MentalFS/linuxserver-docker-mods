@@ -43,14 +43,6 @@ jobs:
     secrets: inherit
 
 
-  openssh-chroot:
-    uses: ./.github/workflows/image.yml
-    with:
-      path: openssh-chroot
-      tag: openssh-chroot
-    secrets: inherit
-
-
   freshrss-all:
     needs:
       - freshrss-extensions
@@ -68,7 +60,6 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs:
       - freshrss-all
-      - openssh-chroot
     runs-on: ubuntu-latest
 
     steps:

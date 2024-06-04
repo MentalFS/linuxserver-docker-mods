@@ -1,9 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-set -e
-
-echo "Setting ChrootDirectory"
-echo "ChrootDirectory /config" >> /etc/ssh/sshd_config
-echo "==> /etc/ssh/sshd_config <=="
-cat /etc/ssh/sshd_config
-echo "END"
