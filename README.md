@@ -16,6 +16,7 @@ Add `ghcr.io/mentalfs/linuxserver-mods:<tag>` to your `DOCKER_MODS` environment 
 | [freshrss-comicsinfeed] | Installs the [Comics in Feed FreshRSS extension] by [giventofly](https://github.com/giventofly) |
 | [freshrss-redditimage]  | Installs the [RedditImage FreshRSS extension] by [aledeg](https://github.com/aledeg)            |
 | [freshrss-redditsub]    | Installs the [RedditSub FreshRSS extension] by [balthisar](https://github.com/balthisar)        |
+| [openssh-chroot]        | Sets `ChrootDirectory` to `/config`                                                             |
 
 ## Mod collections
 
@@ -33,3 +34,4 @@ These are multiple mods packed into one image for convenience. Add them to `DOCK
 [RedditImage FreshRSS extension]:    https://github.com/aledeg/xExtension-RedditImage
 [freshrss-redditsub]:                freshrss-redditsub/README.md
 [RedditSub FreshRSS extension]:      https://github.com/balthisar/xExtension-RedditSub
+[openssh-chroot]:                    openssh-chroot/README.md

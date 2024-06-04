@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+set -e
+
+echo "ChrootDirectory /config" >> /etc/ssh/sshd_config
