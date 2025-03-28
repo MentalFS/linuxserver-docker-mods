@@ -3,6 +3,11 @@
 set -e
 cd /config/www/freshrss/extensions
 
+if [ -d .git-youtube ]; then
+  echo removing freshrss-youtube, it is now part of freshrss-extensions
+  rm -rf .git-youtube xExtension-YouTube
+fi
+
 if [ -d .git-extensions ]; then
   echo updating freshrss-extensions
   git --git-dir=.git-extensions --work-tree=. fetch --all --quiet
