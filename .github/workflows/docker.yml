@@ -27,14 +27,6 @@ jobs:
     secrets: inherit
 
 
-  freshrss-redditimage:
-    uses: ./.github/workflows/image.yml
-    with:
-      path: freshrss-redditimage
-      tag: freshrss-redditimage
-    secrets: inherit
-
-
   freshrss-redditsub:
     uses: ./.github/workflows/image.yml
     with:
@@ -47,7 +39,6 @@ jobs:
     needs:
       - freshrss-extensions
       - freshrss-comicsinfeed
-      - freshrss-redditimage
       - freshrss-redditsub
     uses: ./.github/workflows/image.yml
     with:
