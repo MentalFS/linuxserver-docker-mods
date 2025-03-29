@@ -3,6 +3,11 @@
 set -e
 cd /config/www/freshrss/extensions
 
+if [ -d xExtension-RedditImage/.git-redditimage ]; then
+  echo removing freshrss-redditimage
+  rm -rf xExtension-RedditImage
+fi
+
 if [ -d xExtension-RedditSub/.git-redditsub ]; then
   echo updating freshrss-redditsub
   cd xExtension-RedditSub
