@@ -47,7 +47,7 @@ jobs:
 
       - name: Build Docker image and push it
         id: build-and-push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           build-args: MOD=${{ inputs.path }}
